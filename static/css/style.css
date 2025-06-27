@@ -1,0 +1,290 @@
+/* Custom CSS for School Website - Enhanced Aesthetics */
+
+/* Global Styles */
+body {
+    font-family: 'Quicksand', sans-serif; /* Menggunakan font Inter */
+    background-color: #f0f2f5; /* Light grey background */
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Custom Gradient Colors */
+:root {
+    --green-dark: #28a745; /* Bootstrap success green */
+    --green-light: #2ecc71; /* A lighter, vibrant green */
+    --gradient-header-footer: linear-gradient(to right, var(--green-dark), var(--green-light));
+    --primary-color: #2ecc71; /* Standard Bootstrap primary blue (akan diganti) */
+}
+
+/* Header (Navbar) Styling */
+.navbar {
+    background: var(--gradient-header-footer); /* Apply gradient */
+    border-bottom-left-radius: 15px; /* Rounded corners */
+    border-bottom-right-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    transition: all 0.3s ease-in-out; /* Smooth transition on hover/focus */
+}
+
+.navbar-brand {
+    font-weight: 700; /* Bold font for brand */
+    color: #fff !important; /* White text for brand */
+    font-size: 1.6rem; /* Larger font size */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Subtle text shadow */
+}
+
+.navbar-brand img {
+    border-radius: 50%; /* Make logo round */
+    margin-right: 8px;
+    box-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+.navbar-nav .nav-link {
+    color: #e0e0e0 !important; /* Lighter white for nav links */
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover */
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #fff !important; /* White on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    text-shadow: 0 0 8px rgba(255,255,255,0.7); /* Glow effect */
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Footer Styling */
+footer {
+    background: var(--gradient-header-footer); /* Apply gradient */
+    color: #e0e0e0; /* Lighter text for footer */
+    border-top-left-radius: 15px; /* Rounded corners */
+    border-top-right-radius: 15px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+footer a {
+    color: #fff; /* White links in footer */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #cceeff; /* Lighter on hover */
+}
+
+/* Jumbotron/Hero Section */
+.jumbotron {
+    background-color: #f0f8ff; /* Light blue background */
+    padding: 6rem 3rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 1s ease-out; /* Fade-in animation */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Card Styling (General) */
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden; /* Ensure content respects border-radius */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+    color: #28a745; /* Darker green for card titles */
+    font-weight: 600;
+}
+
+.card-text {
+    color: #555;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 220px; /* Consistent image height for cards */
+    object-fit: cover; /* Crop to fit */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Button Styling (General) */
+.btn {
+    border-radius: 50px; /* More rounded buttons */
+    padding: 10px 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: var(--green-dark); /* Use dark green for primary */
+    border-color: var(--green-dark);
+}
+
+.btn-primary:hover {
+    background-color: var(--green-light); /* Lighter green on hover */
+    border-color: var(--green-light);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Kustomisasi untuk btn-outline-primary */
+.btn-outline-primary {
+    color: var(--green-dark); /* Warna teks hijau gelap */
+    border-color: var(--green-dark); /* Warna border hijau gelap */
+    background-color: transparent; /* Transparan */
+}
+
+.btn-outline-primary:hover {
+    color: #fff; /* Warna teks putih saat hover */
+    background-color: var(--green-light); /* Warna background hijau terang saat hover */
+    border-color: var(--green-light); /* Warna border hijau terang saat hover */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.btn-success {
+    background-color: #2ecc71; /* Keep Bootstrap's success green for specific elements if desired */
+    border-color: #2ecc71;
+}
+
+.btn-success:hover {
+    background-color: #28a745;
+    border-color: #28a745;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #333;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #e0a800;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary,
+.btn-outline-secondary {
+    border-color: #6c757d;
+    color: #fff;
+}
+.btn-secondary:hover,
+.btn-outline-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Icon Styles */
+.fas {
+    margin-right: 5px; /* Spacing for icons next to text */
+}
+
+/* Admin Specific Styles */
+.table-bordered {
+    border-color: #dee2e6;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+}
+
+/* Form Styles */
+.form-label {
+    font-weight: 600;
+    color: #333;
+}
+.form-control, .form-select {
+    border-radius: 8px; /* Slightly rounded inputs */
+    border-color: #ced4da;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+}
+.form-control:focus, .form-select:focus {
+    border-color: var(--green-light);
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25); /* Green focus glow */
+}
+
+/* Alerts */
+.alert {
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+/* Pagination */
+.pagination .page-item .page-link {
+    border-radius: 8px;
+    margin: 0 3px;
+    border: 1px solid #ddd;
+    color: #007bff;
+    transition: all 0.3s ease;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--green-dark);
+    border-color: var(--green-dark);
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: var(--green-light);
+    border-color: var(--green-light);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+/* Blog Content Specific Styles */
+.blog-content a {
+    color: var(--green-dark); /* Warna link di konten blog */
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.blog-content a:hover {
+    color: var(--green-light); /* Warna link saat hover */
+    text-decoration: none;
+}

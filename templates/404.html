@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}404 Not Found - SMA AL-HUSNA CURUG{% endblock %}
+
+{% block content %}
+<div class="container text-center py-5">
+    <h1 class="display-1 text-success">404</h1>
+    <h2 class="mb-4">Halaman Tidak Ditemukan</h2>
+    <p class="lead mb-4">Maaf, halaman yang Anda cari tidak dapat ditemukan di server kami.</p>
+    <img src="https://l.top4top.io/p_3465nh4w81.gif" alt="Halaman Tidak Ditemukan" class="img-fluid mb-4 rounded shadow-sm">
+    <p>Silakan periksa kembali URL atau kembali ke halaman utama.</p>
+    <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg mt-3 fs-6"><i class="fas fa-home me-2"></i>Kembali ke Beranda</a>
+    <a href="{{ url_for('contact') }}" class="btn btn-secondary btn-lg mt-3 ms-3 fs-6"><i class="fas fa-question-circle me-2"></i>Laporkan Masalah</a>
+</div>
+{% endblock %}

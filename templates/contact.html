@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Kontak Kami - SMA AL-HUSNA CURUG{% endblock %}
+
+{% block content %}
+<h1 class="mb-4 text-center text-success animate__animated animate__fadeInDown fs-4"><i class="fas fa-headset me-2"></i>Hubungi Kami</h1>
+<p class="lead text-center mb-5 text-secondary animate__animated animate__fadeInUp">Jangan ragu untuk menghubungi kami jika ada pertanyaan atau informasi lebih lanjut.</p>
+
+<div class="row">
+    <div class="col-md-6 mb-4 animate__animated animate__fadeInLeft">
+        <div class="card shadow-lg p-4 h-100 rounded-3">
+            {# Mengubah text-primary menjadi text-success #}
+            <h3 class="mb-3 text-success fs-5"><i class="fas fa-info-circle me-2"></i>Informasi Kontak</h3>
+            <ul class="list-unstyled text-secondary">
+                <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-success"></i> <strong>Alamat:</strong> Jl. Raya Curug Parigi No.68, Suka Bakti, Kec. Curug, Kabupaten Tangerang, Banten 15810</li>
+                <li class="mb-2"><i class="fas fa-phone-alt me-2 text-success"></i> <strong>Telepon:</strong> (021) 123-4567</li>
+                <li class="mb-2"><i class="fas fa-envelope me-2 text-success"></i> <strong>Email:</strong> testimonideploy@gmail.com</li>
+                <li class="mb-2"><i class="fas fa-globe me-2 text-success"></i> <strong>Website:</strong> {{ request.url }}</li>
+            </ul>
+            {# Mengubah text-primary menjadi text-success #}
+            <h3 class="mt-4 mb-3 text-success fs-5"><i class="fas fa-clock me-2"></i>Jam Kerja</h3>
+            <ul class="list-unstyled text-secondary">
+                <li>Senin - Jumat: 08:00 - 16:00</li>
+                <li>Sabtu: 09:00 - 13:00</li>
+                <li>Minggu: Tutup</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4 animate__animated animate__fadeInRight">
+        <div class="card shadow-lg p-4 h-100 rounded-3">
+            {# Mengubah text-primary menjadi text-success #}
+            <h3 class="mb-3 text-success fs-5"><i class="fas fa-comment-dots me-2"></i>Kirim Pesan kepada Kami</h3>
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="full_name" class="form-label fw-bold text-dark">Nama Lengkap <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="full_name" name="full_name" required placeholder="Nama lengkap Anda">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label fw-bold text-dark">Alamat Email <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" id="email" name="email" required placeholder="email@contoh.com">
+                </div>
+                <div class="mb-3">
+                    <label for="subject" class="form-label fw-bold text-dark">Subjek <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="subject" name="subject" required placeholder="Subjek pesan Anda">
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label fw-bold text-dark">Pesan Anda <span class="text-danger">*</span></label>
+                    <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Tulis pesan Anda di sini..."></textarea>
+                </div>
+                <div class="d-grid gap-2">
+                    {# Tombol ini sudah berwarna hijau karena kustomisasi di style.css untuk .btn-primary #}
+                    <button type="submit" class="btn btn-primary btn-lg rounded-pill px-4 animate__animated animate__pulse animate__infinite" style="font-size: 1rem;">
+                        Kirim Pesan <i class="fas fa-paper-plane ms-2"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="mt-5 mb-4 text-center animate__animated animate__fadeInUp">
+    <h2 class="text-success mb-3 fs-4"><i class="fas fa-map-marker-alt me-2"></i>Lokasi Kami</h2>
+    <p class="text-secondary">Temukan kami di peta.</p>
+    <div class="embed-responsive embed-responsive-16by9 rounded shadow-lg" style="height: 450px;">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.039428226788!2d106.56015149999999!3d-6.258536799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fda2f1656c0f%3A0x4b65c1e02659526!2sSMAS%20Al-HUSNA%20CURUG!5e0!3m2!1sid!2sid!4v1751016888416!5m2!1sid!2sid"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
+{% endblock %}

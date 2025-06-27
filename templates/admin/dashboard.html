@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - SMA AL-HUSNA CURUG{% endblock %}
+
+{% block content %}
+<h1 class="mb-4 text-center text-success fs-4"><i class="fas fa-tachometer-alt me-2"></i>Dashboard Admin</h1>
+<p class="lead text-center mb-5">Kelola postingan blog Anda di sini dengan mudah.</p>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <a href="{{ url_for('add_post') }}" class="btn btn-success rounded-pill px-4 py-2">
+        <i class="fas fa-plus-circle me-2"></i>Tambah Postingan Baru
+    </a>
+    <a href="{{ url_for('admin_logout') }}" class="btn btn-danger rounded-pill px-4 py-2">
+        <i class="fas fa-sign-out-alt me-2"></i>Logout
+    </a>
+</div>
+
+{% if posts %}
+<div class="table-responsive shadow-sm rounded-3 overflow-hidden">
+    <table class="table table-bordered table-striped table-hover mb-0">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col" class="text-center">#</th>
+                <th scope="col">Judul Postingan</th>
+                <th scope="col" class="text-center">Tanggal Diterbitkan</th>
+                <th scope="col" class="text-center">Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in posts %}
+            <tr>
+                <th scope="row" class="text-center">{{ loop.index }}</th>
+                <td>{{ post.title }}</td>
+                <td class="text-center">{{ post.date|datetimeformat }}</td>
+                <td class="text-center">
+                    <a href="{{ url_for('edit_post', post_id=post._id) }}" class="btn btn-sm btn-warning me-2 rounded-pill" title="Edit Post">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
+                    <a href="{{ url_for('delete_post', post_id=post._id) }}" class="btn btn-sm btn-danger rounded-pill" title="Hapus Post" onclick="return confirm('Anda yakin ingin menghapus postingan ini? Tindakan ini tidak dapat dibatalkan.');">
+                        <i class="fas fa-trash-alt"></i> Hapus
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="alert alert-info text-center mt-5 p-4 rounded-3 shadow-sm" role="alert">
+    <i class="fas fa-info-circle fa-2x mb-3 text-info"></i>
+    <h4>Belum ada postingan blog.</h4>
+    <p>Mulailah dengan menambahkan postingan baru untuk mengisi blog sekolah Anda!</p>
+    <a href="{{ url_for('add_post') }}" class="btn btn-info mt-3"><i class="fas fa-plus-circle me-2"></i> Tambah Postingan Pertama Anda</a>
+</div>
+{% endif %}
+
+{% endblock %}

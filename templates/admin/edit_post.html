@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Postingan - {{ post.title }}{% endblock %}
+
+{% block content %}
+<h1 class="mb-4 text-center text-success fs-4"><i class="fas fa-edit me-2"></i>Edit Postingan Blog</h1>
+<p class="lead text-center mb-5">Perbarui detail postingan blog "{{ post.title }}".</p>
+
+<div class="card shadow-lg p-4 rounded-3 mx-auto" style="max-width: 800px;">
+    <form method="POST" action="{{ url_for('edit_post', post_id=post._id) }}" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label fw-bold">Judul Postingan <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ post.title }}" required placeholder="Masukkan judul postingan">
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label fw-bold">Konten Postingan <span class="text-danger">*</span></label>
+            <textarea class="form-control" id="content" name="content" rows="15" required placeholder="Tulis konten blog Anda di sini...">{{ post.content }}</textarea>
+            <small class="form-text text-muted"><i class="fas fa-info-circle me-1"></i>Anda bisa menggunakan Markdown dasar untuk memformat konten Anda.</small>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label fw-bold">Ganti Gambar Utama (Opsional)</label>
+            {% if post.image_url %}
+            <div class="mb-3 p-3 border rounded bg-light">
+                <p class="mb-2"><i class="fas fa-image me-2 text-info"></i>Gambar Saat Ini:</p>
+                <img src="{{ post.image_url }}" alt="Gambar Postingan Saat Ini" class="img-thumbnail rounded shadow-sm" style="max-width: 250px; height: auto; object-fit: cover;">
+                <small class="d-block text-muted mt-2">URL: <a href="{{ post.image_url }}" target="_blank">{{ post.image_url | truncate(50, True) }}</a></small>
+            </div>
+            {% else %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <i class="fas fa-exclamation-triangle me-2"></i><strong>Peringatan:</strong> Postingan ini belum memiliki gambar utama.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endif %}
+            <input type="file" class="form-control" id="image" name="image" accept="image/*">
+            <small class="form-text text-muted mt-2"><i class="fas fa-upload me-1"></i>Pilih file baru untuk mengganti gambar saat ini. Biarkan kosong untuk mempertahankan gambar yang sudah ada.</small>
+        </div>
+        <div class="d-flex justify-content-end gap-2 mt-4">
+            <button type="submit" class="btn btn-primary btn-lg rounded-pill px-4 fs-6">
+                <i class="fas fa-save me-2"></i>Perbarui Postingan
+            </button>
+            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary btn-lg rounded-pill px-4 fs-6">
+                <i class="fas fa-arrow-left me-2"></i>Batal
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

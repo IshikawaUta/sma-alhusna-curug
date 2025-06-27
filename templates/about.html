@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Tentang Kami - SMA AL-HUSNA CURUG{% endblock %}
+
+{% block content %}
+{# Mengubah text-primary menjadi text-success untuk warna hijau pada judul H1 #}
+<h1 class="mb-4 fs-4 text-center text-success animate__animated animate__fadeInDown"><i class="fas fa-info-circle me-2"></i>Tentang SMA AL-HUSNA CURUG</h1>
+<p class="lead text-center fs-6 mb-5 text-secondary animate__animated animate__fadeInUp">Membangun masa depan cerah melalui pendidikan inovatif dan lingkungan belajar yang inspiratif.</p>
+
+<div class="row mb-5 animate__animated animate__fadeIn">
+    <div class="col-md-6 mb-4 mb-md-0">
+        <p class="lead text-dark fs-5">SMA AL-HUSNA CURUG memiliki visi untuk menjadi lembaga pendidikan terdepan yang menghasilkan pemimpin masa depan.</p>
+        <p class="text-secondary fs-6">Kami percaya bahwa setiap anak memiliki potensi unik yang perlu digali dan dikembangkan. Dengan kurikulum yang berimbang antara akademik dan pengembangan karakter, kami berupaya menciptakan lingkungan belajar yang inspiratif dan suportif.</p>
+        <p class="text-secondary fs-6">Guru-guru kami adalah profesional yang berdedikasi dan berpengalaman, yang tidak hanya mengajar mata pelajaran tetapi juga membimbing siswa untuk menjadi individu yang bertanggung jawab, kreatif, dan memiliki nilai-nilai luhur.</p>
+    </div>
+    <div class="col-md-6">
+        <img src="https://b.top4top.io/p_3465a9pdq1.jpg" class="img-fluid rounded shadow-lg animate__animated animate__zoomIn" alt="Gedung Sekolah">
+    </div>
+</div>
+
+<hr class="my-5">
+
+{# Mengubah text-primary menjadi text-success untuk warna hijau pada judul H2 #}
+<h2 class="mb-4 fs-4 text-center text-success animate__animated animate__fadeInDown"><i class="fas fa-bullseye me-2"></i>Visi & Misi Kami</h2>
+<div class="row text-center">
+    <div class="col-md-6 mb-4 animate__animated animate__fadeInLeft">
+        <div class="card h-100 shadow-sm p-4">
+            <i class="fas fa-eye fa-3x text-success mb-3 animate__animated animate__bounceIn fs-3"></i>
+            <h5 class="card-title">Visi</h5>
+            <p class="card-text">Menjadi sekolah unggulan yang melahirkan generasi cerdas, berkarakter, inovatif, dan berdaya saing global.</p>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4 animate__animated animate__fadeInRight">
+        <div class="card h-100 shadow-sm p-4">
+            <i class="fas fa-rocket fa-3x text-success mb-3 animate__animated animate__bounceIn fs-3"></i> {# Ikon untuk Misi (sudah hijau) #}
+            <h5 class="card-title">Misi</h5>
+            <ul class="list-unstyled text-start text-secondary mx-auto" style="max-width: 400px;">
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Meningkatkan kualitas akademik melalui pembelajaran yang interaktif dan relevan.</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Mengembangkan potensi non-akademik siswa melalui beragam ekstrakurikuler dan pembinaan.</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Membentuk karakter siswa yang berakhlak mulia, mandiri, dan bertanggung jawab.</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Menciptakan lingkungan sekolah yang aman, nyaman, kolaboratif, dan kondusif untuk belajar.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-5 mb-3 animate__animated animate__fadeInUp">
+    {# Tombol ini sudah berwarna hijau karena kustomisasi di style.css untuk .btn-primary #}
+    <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg rounded-pill px-4 animate__animated animate__pulse animate__infinite" style="font-size: 1rem;">
+        Bergabunglah dengan Kami <i class="fas fa-user-friends ms-2"></i>
+    </a>
+</div>
+{% endblock %}

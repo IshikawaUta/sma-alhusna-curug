@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} - Blog Sekolah{% endblock %}
+
+{% block content %}
+<nav aria-label="breadcrumb" class="animate__animated animate__fadeIn">
+    <ol class="breadcrumb bg-light p-2 rounded-pill shadow-sm">
+      <li class="breadcrumb-item"><a href="{{ url_for('blog') }}" class="text-decoration-none text-success"><i class="fas fa-arrow-left me-2"></i>Kembali ke Blog</a></li>
+      <li class="breadcrumb-item active text-success" aria-current="page">{{ post.title | truncate(50, True) }}</li>
+    </ol>
+</nav>
+
+<div class="card shadow-lg mb-5 rounded-3 animate__animated animate__fadeInUp">
+    <div class="card-body p-4 p-md-5">
+        <h1 class="card-title text-center mb-4 text-success animate__animated animate__fadeInDown fs-4">{{ post.title }}</h1>
+        <p class="text-success text-center mb-4 animate__animated animate__fadeIn">
+            <small><i class="fas fa-calendar-alt me-1"></i> Diterbitkan pada: {{ post.date|datetimeformat }}</small>
+        </p>
+
+        {% if post.image_url %}
+        <div class="text-center mb-5 animate__animated animate__zoomIn">
+            <img src="{{ post.image_url }}" class="img-fluid rounded shadow-lg border border-2 border-success" alt="{{ post.title }}" style="max-height: 500px; width: 100%; object-fit: cover;">
+            <small class="d-block text-success mt-2">Gambar Utama Postingan</small>
+        </div>
+        {% else %}
+        <div class="text-center mb-5 animate__animated animate__zoomIn">
+            <img src="https://placehold.co/800x450/e0e0e0/000000?text=Gambar+Tidak+Tersedia" class="img-fluid rounded shadow-lg border border-2 border-success" alt="Gambar Tidak Tersedia" style="max-height: 500px; width: 100%; object-fit: cover;">
+            <small class="d-block text-success mt-2">Gambar tidak tersedia untuk postingan ini.</small>
+        </div>
+        {% endif %}
+
+        {# Konten blog akan dirender oleh JavaScript di sini #}
+        <div id="blog-content-display" class="blog-content mt-4 animate__animated animate__fadeInUp">
+            {# Konten asli akan dimuat di sini oleh JS #}
+            <div id="raw-blog-content" style="display: none;">{{ post.content }}</div>
+        </div>
+
+        <hr class="my-5 border-success">
+
+        <div class="text-center animate__animated animate__zoomIn">
+            <a href="{{ url_for('blog') }}" class="btn btn-primary btn-lg rounded-pill px-4" style="font-size: 1rem;"><i class="fas fa-th-list me-2"></i>Lihat Semua Postingan</a>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const rawContentElement = document.getElementById('raw-blog-content');
+    const displayElement = document.getElementById('blog-content-display');
+
+    if (rawContentElement && displayElement) {
+        const rawContent = rawContentElement.textContent; // Ambil teks mentah
+
+        // Fungsi untuk mengonversi baris baru dan URL menjadi HTML
+        function formatBlogContent(text) {
+            // 1. Ganti baris baru (\n) dengan <br>
+            let formattedText = text.replace(/\n/g, '<br>');
+
+            // 2. Ubah URL menjadi tautan yang dapat diklik
+            // Regex untuk mendeteksi URL (http/https)
+            const urlRegex = /(https?:\/\/[^\s<]+)/g;
+            formattedText = formattedText.replace(urlRegex, function(url) {
+                // Pastikan URL tidak berada dalam tag HTML (misalnya jika ada <img src="URL">)
+                // Ini adalah penyederhanaan, untuk kasus kompleks butuh DOM parsing yang lebih canggih
+                if (url.includes('<') || url.includes('>')) {
+                    return url; // Jangan proses jika terlihat seperti bagian dari tag HTML
+                }
+                return '<a href="' + url + '" target="_blank" rel="noopener noreferrer">' + url + '</a>';
+            });
+
+            return formattedText;
+        }
+
+        // Terapkan format dan masukkan ke dalam elemen display
+        displayElement.innerHTML = formatBlogContent(rawContent);
+    }
+});
+</script>
+{% endblock %}

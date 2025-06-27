@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Beranda - SMA AL-HUSNA CURUG{% endblock %}
+
+{% block content %}
+<div class="p-5 mb-4 jumbotron rounded-3 text-center"> {# Menggunakan kelas jumbotron kustom dari style.css #}
+    <div class="container-fluid py-5">
+        {# Mengubah text-primary menjadi text-success untuk warna hijau #}
+        <h1 class="display-5 fs-3 fw-bold text-success animate__animated animate__fadeInDown">Selamat Datang di SMA AL-HUSNA CURUG!</h1> {# Animasi dari animate.css jika diintegrasikan #}
+        <p class="col-md-8 fs-5 mx-auto text-secondary animate__animated animate__fadeInUp">Membentuk masa depan cerah melalui pendidikan inovatif dan lingkungan belajar yang inspiratif.</p>
+        <hr class="my-4">
+        {# Tombol ini sudah berwarna hijau karena kustomisasi di style.css untuk .btn-primary #}
+        <a class="btn btn-primary btn-lg rounded-pill px-4 animate__animated animate__zoomIn" type="button" href="{{ url_for('about') }}" style="font-size: 1rem;">
+            Pelajari Lebih Lanjut <i class="fas fa-arrow-right ms-2"></i>
+        </a>
+    </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+    <div class="col animate__animated animate__fadeInLeft"> {# Animasi #}
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="fas fa-graduation-cap fa-3x text-success mb-3 animate__animated animate__bounceIn"></i> {# Ikon dengan warna hijau #}
+                <h5 class="card-title">Program Unggulan</h5>
+                <p class="card-text">Kami menawarkan kurikulum yang komprehensif dan program ekstrakurikuler yang beragam untuk mengembangkan potensi siswa secara maksimal.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col animate__animated animate__fadeInUp"> {# Animasi #}
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="fas fa-school fa-3x text-success mb-3 animate__animated animate__bounceIn"></i> {# Ikon dengan warna hijau #}
+                <h5 class="card-title">Fasilitas Modern</h5>
+                <p class="card-text">Dilengkapi dengan laboratorium canggih, perpustakaan yang lengkap, dan area olahraga yang luas untuk mendukung kegiatan belajar mengajar.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col animate__animated animate__fadeInRight"> {# Animasi #}
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="fas fa-newspaper fa-3x text-success mb-3 animate__animated animate__bounceIn"></i> {# Ikon dengan warna hijau #}
+                <h5 class="card-title">Berita & Acara</h5>
+                <p class="card-text">Ikuti terus perkembangan terbaru, pengumuman penting, dan berbagai acara menarik melalui blog resmi sekolah kami.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="my-5 text-center animate__animated animate__fadeInUp">
+    {# Mengubah text-primary menjadi text-success untuk warna hijau #}
+    <h2 class="text-success fs-4 mb-3">Mengapa Memilih Kami?</h2>
+    <p class="lead text-secondary mb-4">Kami berkomitmen untuk memberikan pendidikan terbaik bagi putra-putri Anda, dengan fokus pada inovasi dan karakter.</p>
+    {# Tombol ini sudah berwarna hijau karena kustomisasi di style.css untuk .btn-outline-primary #}
+    <a href="{{ url_for('contact') }}" class="btn btn-outline-primary btn-lg rounded-pill px-4 mt-3 animate__animated animate__pulse animate__infinite" style="font-size: 1rem;"> {# Animasi berulang #}
+        Hubungi Kami <i class="fas fa-envelope ms-2"></i>
+    </a>
+</div>
+
+{% endblock %}
